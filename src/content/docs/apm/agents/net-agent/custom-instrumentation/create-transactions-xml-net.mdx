@@ -70,14 +70,23 @@ To create a custom instrumentation file:
        .NET Framework agent:
 
        ```
-       D:\home\site\wwwroot\newrelic\extensions
+       D:\home\NewRelicAgent\Framework\Extensions
        ```
 
        .NET Core agent:
 
        ```
-       D:\home\site\wwwroot\newrelic_core\extensions
+       D:\home\NewRelicAgent\Core\Extensions
        ```
+       
+       </Collapser>
+
+       <Collapser
+       id="nuget"
+       title="For NuGet agent installations"
+     >
+       Use the `newrelic/Extensions` folder added to your project by NuGet.
+       
      </Collapser>
    </CollapserGroup>
 2. Copy this template into the file you created. This template defines two separate class and methods as transactions but more can be added:
