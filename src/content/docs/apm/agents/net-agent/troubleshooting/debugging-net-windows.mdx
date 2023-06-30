@@ -91,7 +91,7 @@ If the environment variables don't match what you see above you can re-run the .
 
 If the environment variables above are not present in the process at all, it usually means one of the following things:
 
-* **IIS applications**: There are **[permissions issues](/docs/agents/net-agent/troubleshooting/no-data-registry-key-permission-issues)** on your server which are preventing the application you're trying to monitor from accessing the registry keys where the variables are set.
+* **IIS applications**: There are **[permissions issues](/docs/agents/net-agent/troubleshooting/no-data-registry-key-permission-issues)** on your server which are preventing the application you're trying to monitor from accessing the registry keys where the variables are set. Often, you'll see application errors in the **Windows Event Viewer** related to `.NET Runtime` that could reveal further details.
 * **Non-IIS applications**: The [“Instrument all .NET applications” feature](/docs/agents/net-agent/additional-installation/instrument-non-iis-apps) was not selected when the agent was installed. Out-of-the-box, the Framework agent monitors IIS-hosted web apps. If the `Instrument all .NET Applications` feature is not installed, the agent will ignore all non-IIS applications that start up on your server. You can check whether the feature was installed by looking at the Windows system environment variables for the server and seeing if the above variables are set. If they're not, re-run the installer and select the `Instrument all .NET applications` feature when prompted.
 
 <Callout variant="important">
@@ -155,5 +155,9 @@ Check the following permissions tasks:
 
 * Make sure that the user your application process is running under has read/write/execute permissions to the directory where the .NET agent was extracted on your system (`NEWRELIC_INSTALL_PATH` or `CORECLR_NEWRELIC_HOME`), and all of its sub-directories.
 * If you made any changes, restart your app and go back to [Step 1](#step-one).
+
+## Step 5: Validate your newrelic.config file [#step-five]
+
+If there's an error in the newrelic.config file (either the default config file or any you may have added to app directories) such as mal-formed XML, you may see Profiler logs but the agent could fail to start up and write agent logs. [Here](https://knowledge.newrelic.com/s/article/How-to-Validate-your-NET-APM-agent-newrelic-config-file) are some ways you can validate your config file.
 
 If the above steps did not address the issue, we recommend you contact support or ask for help on [our Support Forum forum](https://discuss.newrelic.com/tag/dotnetagent).
