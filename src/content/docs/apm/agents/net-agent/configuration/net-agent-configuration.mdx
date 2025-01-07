@@ -1175,6 +1175,11 @@ The `log` element supports the following attributes:
     </table>
 
     Send log messages to the console, in addition to the log file. Alternatively, set the `NEW_RELIC_LOG_CONSOLE` environment variable in the application's environment.
+
+<Callout variant="tip">
+  Enabling this configuration will log to the console regardless of whether logging is enabled.
+</Callout>
+
   </Collapser>
 
   <Collapser
@@ -1206,6 +1211,11 @@ The `log` element supports the following attributes:
     </table>
 
     If disabled, no logging is attempted. Intended for read-only file systems. Alternatively, set the `NEW_RELIC_LOG_ENABLED` environment variable in the application's environment.
+
+<Callout variant="tip">
+If you disable writing logs to a file via this configuration, you can still send agent logs to the console by setting [console](https://docs.newrelic.com/docs/apm/agents/net-agent/configuration/net-agent-configuration/#log-console) to `true`.
+</Callout>
+
   </Collapser>
 
   <Collapser
